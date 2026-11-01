@@ -1,4 +1,3 @@
-```dart
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math' as math;
@@ -462,4 +461,35 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                 color: Color(0xFF072B22),
                 child: ListTile(
                   title: Text('دعاء دخول المسجد', style: TextStyle(color: Color(0xFFD4A843), fontWeight: FontWeight.bold)),
-                  subtitle: Text('بِسْمِ الل
+                  subtitle: Text('بِسْمِ اللَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ.'),
+                ),
+              ),
+              const Card(
+                color: Color(0xFF072B22),
+                child: ListTile(
+                  title: Text('سيد الاستغفار', style: TextStyle(color: Color(0xFFD4A843), fontWeight: FontWeight.bold)),
+                  subtitle: Text('اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ...'),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _tabIndex,
+        onTap: (i) => setState(() => _tabIndex = i),
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: const Color(0xFF031712),
+        selectedItemColor: const Color(0xFFD4A843),
+        unselectedItemColor: Colors.white70,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.access_time), label: 'المواقيت'),
+          BottomNavigationBarItem(icon: Icon(Icons.volume_off), label: 'صامت المسجد'),
+          BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'القبلة'),
+          BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: 'القرآن (114)'),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'الأذكار'),
+        ],
+      ),
+    );
+  }
+}

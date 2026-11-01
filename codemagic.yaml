@@ -1,0 +1,23 @@
+workflows:
+  android-apk-workflow:
+    name: Build Rafiq Al-Musalli Android APK
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      flutter: stable
+    scripts:
+      - name: Create Android platform scaffolding
+        script: |
+          cp lib/main.dart /tmp/main.dart.bak
+          cp pubspec.yaml /tmp/pubspec.yaml.bak
+          flutter create . --project-name rafiq_al_musalli --org com.rafiq.musalli
+          cp /tmp/main.dart.bak lib/main.dart
+          cp /tmp/pubspec.yaml.bak pubspec.yaml
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+      - name: Build Release APK
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/**/outputs/**/*.apk
